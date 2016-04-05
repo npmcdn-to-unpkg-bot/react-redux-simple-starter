@@ -4,6 +4,10 @@ import { Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import routes from '../routes';
 
+// if (process.env.BROWSER) {
+require('../styles/core.scss');
+// }
+
 export default class Root extends Component {
   render() {
     const { store } = this.props;
