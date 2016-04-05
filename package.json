@@ -1,8 +1,18 @@
 {
-  "name": "new-start",
+  "name": "react-redux-simple-starter",
   "version": "1.0.0",
-  "description": "A react boilerplate",
-  "main": "index.js",
+  "description": "A simple starter boilerplate for a webapp using react and redux",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/laaksonen/react-redux-simple-example"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "starter",
+    "boilerplate"
+  ],
+  "main": "bin/server.js",
   "scripts": {
     "start": "NODE_ENV=development node bin/server",
     "test": "echo \"Error: no test specified\" && exit 1"
