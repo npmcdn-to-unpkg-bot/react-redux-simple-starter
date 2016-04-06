@@ -1,11 +1,18 @@
 const path = require('path');
-const chalk = require('chalk');
 const express = require('express');
+const serveStatic = require('serve-static');
+const chalk = require('chalk');
 const webpack = require('webpack');
 const webpackConfig = require('../webpack.config.dev');
 
+const staticPath = path.resolve(__dirname, '../static');
+
 const app = express();
 const compiler = webpack(webpackConfig);
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(serveStatic(staticPath));
+}
 
 if (process.env.NODE_ENV === 'development') {
   app.use(require('webpack-dev-middleware')(compiler, {

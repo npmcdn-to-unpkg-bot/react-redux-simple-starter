@@ -16,15 +16,35 @@
   "scripts": {
     "clean": "rimraf dist",
     "lint": "eslint .",
-    "start": "node bin/server",
+    "compile": "better-npm-run compile",
+    "deploy": "better-npm-run deploy",
     "dev": "better-npm-run dev",
+    "start": "better-npm-run start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "betterScripts": {
+    "compile": {
+      "command": "webpack --stats --config webpack.config.prod.js --progress",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "deploy": {
+      "command": "npm run clean && npm run compile",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
     "dev": {
       "command": "nodemon bin/server",
       "env": {
         "NODE_ENV": "development"
+      }
+    },
+    "start": {
+      "command": "node bin/server",
+      "env": {
+        "NODE_ENV": "production"
       }
     }
   },
@@ -52,6 +72,7 @@
     "redux-thunk": "^2.0.1",
     "rimraf": "^2.5.2",
     "sass-loader": "^3.2.0",
+    "serve-static": "^1.10.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.12.14"
   },
