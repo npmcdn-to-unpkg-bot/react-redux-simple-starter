@@ -3,7 +3,8 @@ const express = require('express');
 const serveStatic = require('serve-static');
 const chalk = require('chalk');
 const webpack = require('webpack');
-const webpackConfig = require('../config/webpack.config.dev');
+const webpackConfig = require('../config/webpack.config');
+const config = require('../config');
 
 const staticPath = path.resolve(__dirname, '../static');
 
