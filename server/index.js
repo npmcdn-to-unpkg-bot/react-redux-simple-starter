@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(config.paths.htmlFile);
 });
 
 module.exports = app;
