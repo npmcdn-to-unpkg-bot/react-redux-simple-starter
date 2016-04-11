@@ -3,7 +3,6 @@ const express = require('express');
 const serveStatic = require('serve-static');
 const serveFavicon = require('serve-favicon');
 const chalk = require('chalk');
-const history = require('connect-history-api-fallback');
 const webpack = require('webpack');
 const webpackConfig = require('../config/webpack.config');
 const config = require('../config');
