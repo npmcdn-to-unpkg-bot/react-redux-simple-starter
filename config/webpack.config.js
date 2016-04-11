@@ -58,7 +58,6 @@ if (PRODUCTION) {
     }),
     new webpack.optimize.OccurenceOrderPlugin()
   );
-
 }
 
 module.exports = webpackConfig;

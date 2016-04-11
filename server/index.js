@@ -1,18 +1,20 @@
 const path = require('path');
 const express = require('express');
 const serveStatic = require('serve-static');
+const serveFavicon = require('serve-favicon');
 const chalk = require('chalk');
+const history = require('connect-history-api-fallback');
 const webpack = require('webpack');
 const webpackConfig = require('../config/webpack.config');
 const config = require('../config');
 
-const staticPath = path.resolve(__dirname, '../static');
-
 const app = express();
 const compiler = webpack(webpackConfig);
 
+app.use(serveFavicon(`${config.paths.static}/assets/favicon.png`));
+
 if (process.env.NODE_ENV === 'production') {
-  app.use(serveStatic(staticPath));
+  app.use(serveStatic(config.paths.static));
 }
 
 if (process.env.NODE_ENV === 'development') {
