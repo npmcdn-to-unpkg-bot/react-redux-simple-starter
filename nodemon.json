@@ -1,4 +1,4 @@
 {
   "verbose": false,
-  "ignore": ["src", "dist", "coverage", "tests"]
+  "ignore": ["src", "dist", "coverage", "test"]
 }

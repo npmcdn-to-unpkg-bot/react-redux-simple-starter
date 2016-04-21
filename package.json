@@ -50,7 +50,7 @@
     }
   },
   "author": "Lauri Laaksonen <lauri@laaksonen.io> (http://laaksonen.io)",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "babel-core": "^6.7.4",
     "babel-loader": "^6.2.4",
