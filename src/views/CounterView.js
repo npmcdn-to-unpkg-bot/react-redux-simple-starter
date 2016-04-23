@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { increment, decrement } from '../redux/modules/counter/counterActions';
+import { actions } from '../redux/modules/counter';
 import Counter from '../components/Counter';
 
 class CounterView extends Component {
@@ -22,7 +22,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect((mapStateToProps), {
-  increment,
-  decrement,
-})(CounterView);
+export default connect((mapStateToProps), actions)(CounterView);
