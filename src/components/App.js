@@ -4,12 +4,10 @@ import Navigation from './Navigation';
 export default class App extends Component {
 
   render() {
-    const { children } = this.props;
-
     return (
       <div>
         <Navigation />
-        {children}
+        {this.props.children}
       </div>
     );
   }

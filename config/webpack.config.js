@@ -18,6 +18,14 @@ const webpackConfig = {
   },
   plugins: [
     new ExtractTextPlugin('styles.css'),
+    // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
+    // inside your code for any environment checks; UglifyJS will automatically
+    // drop any unreachable code.
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(config.env),
+      },
+    }),
   ],
   module: {
     loaders: [
@@ -51,12 +59,17 @@ if (DEVELOPMENT) {
 
 if (PRODUCTION) {
   webpackConfig.plugins.push(
+    // OccurrenceOrderPlugin is needed for long-term caching to work properly.
+    // See http://mxs.is/googmv
+    new webpack.optimize.OccurenceOrderPlugin(),
+    // Minify and optimize the JavaScript
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
         warnings: false,
       },
     }),
-    new webpack.optimize.OccurenceOrderPlugin()
+    // Merge all duplicate modules
+    new webpack.optimize.DedupePlugin()
   );
 }
 

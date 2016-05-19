@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { actions } from '../redux/modules/counter';
+import { actions } from '../counter';
 import Counter from '../components/Counter';
 
 class CounterView extends Component {

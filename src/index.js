@@ -7,7 +7,6 @@ import routes from './routes';
 import Root from './containers/Root';
 
 const store = configureStore();
-
 const history = syncHistoryWithStore(browserHistory, store);
 
 render(<Root store={store} routes={routes} history={history} />, document.getElementById('root'));

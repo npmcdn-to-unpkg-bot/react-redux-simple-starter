@@ -18,7 +18,7 @@ const config = {
     server: path.resolve(PROJECT_ROOT, SERVER_DIR),
     static: path.resolve(PROJECT_ROOT, STATIC_DIR),
     entryFile: path.resolve(PROJECT_ROOT, CLIENT_DIR, 'index.js'),
-    htmlFile: path.resolve(PROJECT_ROOT, CLIENT_DIR, 'index.html'),
+    htmlFile: path.resolve(PROJECT_ROOT, STATIC_DIR, 'index.html'),
   },
 
   server: {

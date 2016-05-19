@@ -1,7 +1,7 @@
 module.exports = {
   server: {
     hostname: 'localhost',
-    port: 8000,
+    port: process.env.PORT || 8000,
   },
 
   webpack: {
