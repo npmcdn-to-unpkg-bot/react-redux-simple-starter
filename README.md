@@ -1,19 +1,33 @@
 # React Redux Simple Starter
 
 A simple boilerplate to get you up and running quickly with React and Redux.
-This boilerplate provides a powerful build system with webpack, hot reloading,
-routing, Sass support, unit testing, linting, and more. The goal of this project
-is to provide structure and to demonstrate a very simple application that is easy
-to expand on.
+This boilerplate leverages webpack to provide a powerful build system, provides
+hot reloading, routing, Sass support, unit testing, linting, and more. The goal
+of this project is provide a robust project structure that is easy to expand on.
+
+The goal of this project is to provide structure and to demonstrate a very simple application that is easy to expand on.
 
 ## Table of Contents
+1. [Features](#features)
 1. [Requirements](#requirements)
 1. [Getting Started](#getting-started)
-1. [Technology Stack](#technology-stack)
 1. [Application Structure](#application-structure)
 1. [Deployment](#deployment)
 1. [Contributing](#contributing)
 1. [License](#license)
+
+## Features
+| **Feature** | **Description** |
+| ---------|-----------------|
+| [React](https://facebook.github.io/react/) | View |
+| [React Router](https://github.com/reactjs/react-router) | Routing |
+| [Redux](http://redux.js.org/) | Client-side cache |
+| [lodash](https://lodash.com/) | Utility |
+| [Babel](https://babeljs.io/) | JavaScript compiler |
+| [Webpack](https://webpack.github.io/) | Build system |
+| [Express](http://expressjs.com/) | Development server |
+| [Mocha](https://mochajs.org/) | Testing |
+| [ESLint](http://eslint.org/) | Linting |
 
 ## Requirements
 * [Node.js 6.0+](http://nodejs.org)
@@ -38,20 +52,6 @@ are additional scripts at your disposal:
 |`test:dev`|Runs unit tests and watches for changes to re-run tests.|
 |`compile`|Compiles the application to `~/static/dist`.|
 |`deploy`|Runs linter, tests, and then, on success, compiles your application to disk.|
-
-## Technology Stack
-
-| **Technology** | **Description** |
-| ---------|-----------------|
-| [React](https://facebook.github.io/react/) | View |
-| [React Router](https://github.com/reactjs/react-router) | Routing |
-| [Redux](http://redux.js.org/) | Client-side cache |
-| [Lodash](https://lodash.com/) | Utility |
-| [Babel](https://babeljs.io/) | JavaScript compiler |
-| [Webpack](https://webpack.github.io/) | Build system |
-| [Express](http://expressjs.com/) | Development server |
-| [Mocha](https://mochajs.org/) | Testing |
-| [ESLint](http://eslint.org/) | Linting |
 
 ## Application Structure
 The aim is to mostly group functionality by feature rather than by file type. All
