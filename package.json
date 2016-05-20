@@ -22,7 +22,7 @@
     "test": "mocha --recursive --compilers js:babel-register --require ./test/setup.js",
     "test:dev": "npm run test -- --watch",
     "compile": "NODE_ENV=production webpack --stats --config config/webpack.config.js --progress",
-    "deploy": "NODE_ENV=production npm run lint && npm run test && npm run clean && npm run compile",
+    "deploy": "NODE_ENV=production npm run lint && npm run test && npm run clean && npm run compile"
   },
   "author": "Lauri Laaksonen <lauri@laaksonen.io> (http://laaksonen.io)",
   "license": "MIT",

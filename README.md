@@ -1,10 +1,10 @@
 # React Redux Simple Starter
 
 A simple boilerplate to get you up and running quickly with React and Redux.
-This boilerplate provides a powerful build system with webpack, routing,
-Sass support, unit testing, linting, and more. The goal of this project is to
-provide structure and demonstrate a very simple application that is easy to
-expand on.
+This boilerplate provides a powerful build system with webpack, hot reloading,
+routing, Sass support, unit testing, linting, and more. The goal of this project
+is to provide structure and to demonstrate a very simple application that is easy
+to expand on.
 
 ## Table of Contents
 1. [Requirements](#requirements)
@@ -13,6 +13,7 @@ expand on.
 1. [Application Structure](#application-structure)
 1. [Deployment](#deployment)
 1. [Contributing](#contributing)
+1. [License](#license)
 
 ## Requirements
 * [Node.js 6.0+](http://nodejs.org)
@@ -22,7 +23,7 @@ expand on.
 $ git clone https://github.com/laaksonen/react-redux-simple-starter.git
 $ cd react-redux-simple-starter
 $ npm install
-$ npm run dev
+$ npm start
 ```
 While developing, you will probably mostly rely on ``npm start``; however, there
 are additional scripts at your disposal:
@@ -67,7 +68,7 @@ new features are grouped together in the modules folder.
 │   │   ├── counter           # A simple counter module
 │   │   │   ├── components    # Counter components
 │   │   │   ├── views         # Views are components that map to routes
-│   │   │   └── counter.js    # Constants, reducer, and actions for counter
+│   │   │   └── counter.js    # Constants, actions, and reducer for counter
 │   │   └── landing           # Landing page module
 │   ├── redux                 # Redux specific files
 │   │   ├── configureStore    # Create a redux store
@@ -84,6 +85,21 @@ new features are grouped together in the modules folder.
 ```
 
 ## Deployment
+There are several different ways in which to deploy the application. The most simple,
+and the way I prefer, is to simply upload our compiled files to a service that
+specializes in delivering static content. This is possible because the compiled
+application is entirely static. One such service is [AWS S3](https://aws.amazon.com/s3/).
+Just simply run `npm run deploy`, sign up on Amazon Web Services, create an S3 bucket,
+configure it as a website, and finally upload everything from the static folder
+into the bucket.
+
+Another option is to get a virtual server, like the ones
+[Digital Ocean](https://www.digitalocean.com/) offer. Start by installing Node on
+the server and by using git to clone your application there. Next install dependencies
+and build the application with `npm run deploy`. Finally serve it using the Express
+server included in the project by running `npm run prod`. You may also want to
+change the port at which the Express server runs. You can specify the port by
+running `PORT=<PORT_NUMBER> npm run prod`.
 
 ## Contributing
 I am more than happy to accept any external contributions to the project in the
