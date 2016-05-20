@@ -4,8 +4,8 @@ import {
   DECREMENT_COUNTER,
   increment,
   decrement,
-} from '../../../src/redux/modules/counter/counterActions';
-import counterReducer from '../../../src/redux/modules/counter/counterReducer';
+} from '../../../src/modules/counter/counter';
+import counterReducer from '../../../src/modules/counter/counter';
 
 describe('(Redux Module) Counter', () => {
   describe('(Reducer)', () => {

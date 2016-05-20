@@ -7,9 +7,12 @@ provide structure and demonstrate a very simple application that is easy to
 expand on.
 
 ## Table of Contents
+1. [Requirements](#requirements)
 1. [Getting Started](#getting-started)
 1. [Technology Stack](#technology-stack)
 1. [Application Structure](#application-structure)
+1. [Deployment](#deployment)
+1. [Contributing](#contributing)
 
 ## Requirements
 * [Node.js 6.0+](http://nodejs.org)
@@ -21,22 +24,19 @@ $ cd react-redux-simple-starter
 $ npm install
 $ npm run dev
 ```
-While developing, you will probably mostly rely on ``npm run dev``; however, there
+While developing, you will probably mostly rely on ``npm start``; however, there
 are additional scripts at your disposal:
 
 |`npm run <script>`|Description|
 |------------------|-----------|
-|`start`|Serves your app at `localhost:3000`. HMR will be enabled in development.|
-|`compile`|Compiles the application to `~/static/dist`.|
-|`dev`|Same as `npm start`, but enables nodemon for the server as well.|
-|`dev:no-debug`|Same as `npm run dev` but disables devtool instrumentation.|
-|`test`|Runs unit tests with Karma and generates a coverage report.|
-|`test:dev`|Runs Karma and watches for changes to re-run tests; does not generate coverage reports.|
-|`deploy`|Runs linter, tests, and then, on success, compiles your application to disk.|
-|`deploy:dev`|Same as `deploy` but overrides `NODE_ENV` to "development".|
-|`deploy:prod`|Same as `deploy` but overrides `NODE_ENV` to "production".|
+|`start`|Serves application with HMR enabled at `localhost:3000`.|
+|`dev`|Same as `npm start`.|
+|`prod`|Serves compiled application from disk with HMR disabled at `localhost:3000`.|
 |`lint`|Lint all `.js` files.|
-|`lint:fix`|Lint and fix all `.js` files. [Read more on this](http://eslint.org/docs/user-guide/command-line-interface.html#fix).|
+|`test`|Runs unit tests.|
+|`test:dev`|Runs unit tests and watches for changes to re-run tests.|
+|`compile`|Compiles the application to `~/static/dist`.|
+|`deploy`|Runs linter, tests, and then, on success, compiles your application to disk.|
 
 ## Technology Stack
 
@@ -53,8 +53,8 @@ are additional scripts at your disposal:
 | [ESLint](http://eslint.org/) | Linting |
 
 ## Application Structure
-The aim is to mostly group functionality by feature rather than file type. We
-call new features modules and keep them in the modules folder.
+The aim is to mostly group functionality by feature rather than by file type. All
+new features are grouped together in the modules folder.
 ```
 .
 ├── bin                       # Start scripts
@@ -82,6 +82,8 @@ call new features modules and keep them in the modules folder.
 │   └── index.html            # Entry point for the browser
 └── test                      # Unit tests
 ```
+
+## Deployment
 
 ## Contributing
 I am more than happy to accept any external contributions to the project in the
