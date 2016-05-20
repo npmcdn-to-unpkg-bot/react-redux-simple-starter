@@ -1,9 +1,10 @@
 # React Redux Simple Starter
 
-A simple boilerplate to get you up and running quickly with React and Redux.
-This boilerplate leverages webpack to provide a powerful build system, provides
-hot reloading, routing, Sass support, unit testing, linting, and more. The goal
-of this project is provide a robust project structure that is easy to expand on.
+A simple boilerplate to get you up and running quickly with **React** and
+**Redux**. This boilerplate leverages webpack to provide a powerful build
+system, provides hot reloading, routing, Sass support, unit testing, linting,
+and more. The goal of this project is provide a **robust** and **scalable**
+structure on which to build on.
 
 ## Table of Contents
 1. [Features](#features)
@@ -52,8 +53,9 @@ are additional scripts at your disposal:
 |`deploy`|Runs linter, tests, and then, on success, compiles your application to disk.|
 
 ## Application Structure
-The aim is to mostly group functionality by feature rather than by file type. All
-new features are grouped together in the modules folder.
+The aim is to mostly group functionality by feature rather than by file type. This
+is very useful when building scalable applications. All new features are grouped
+together in the modules folder.
 ```
 .
 ├── bin                       # Start scripts
