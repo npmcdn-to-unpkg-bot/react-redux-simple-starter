@@ -38,6 +38,9 @@ $ cd react-redux-simple-starter
 $ npm install
 $ npm start
 ```
+You can now navigate to http://localhost:3000 in your browser and you should
+find the application running.
+
 While developing, you will probably mostly rely on ``npm start``; however, there
 are additional scripts at your disposal:
 
@@ -85,21 +88,26 @@ together in the modules folder.
 ```
 
 ## Deployment
-There are several different ways in which to deploy the application. The most simple,
-and the way I prefer, is to simply upload our compiled files to a service that
-specializes in delivering static content. This is possible because the compiled
-application is entirely static. One such service is [AWS S3](https://aws.amazon.com/s3/).
-Just simply run `npm run deploy`, sign up on Amazon Web Services, create an S3 bucket,
-configure it as a website, and finally upload everything from the static folder
-into the bucket.
+There are several different ways in which to deploy the application. The most
+simple, and the way which I personally prefer, is to simply upload the compiled
+files to a service that specializes in delivering static content.
+This is possible because the compiled client-side application is entirely static.
+One such service is Amazon's [AWS S3](https://aws.amazon.com/s3/).
+Simply compile your app with `npm run deploy`, sign up on Amazon Web Services,
+create an S3 bucket, configure it as a static website, and finally upload
+everything from the static folder into the bucket.
 
-Another option is to get a virtual server, like the ones
-[Digital Ocean](https://www.digitalocean.com/) offer. Start by installing Node on
-the server and by using git to clone your application there. Next install dependencies
-and build the application with `npm run deploy`. Finally serve it using the Express
-server included in the project by running `npm run prod`. You may also want to
-change the port at which the Express server runs. You can specify the port by
-running `PORT=<PORT_NUMBER> npm run prod`.
+Another option is to use a virtual server like the ones at
+[Digital Ocean](https://www.digitalocean.com/). Start by installing Node on
+the server and then just follow the steps at
+[Getting Started](#getting-started).
+
+Note: you might want to change the port at which the Express server runs. You can
+specify a port with `PORT=<PORT_NUMBER> npm run prod`.
+
+Yet another option, if you don't want to manage your own virtual server but would
+instead like for someone to do it for you, is to look into managed hosting.
+[Heroku](https://heroku.com) is one popular option for this.
 
 ## Contributing
 I am more than happy to accept any external contributions to the project in the
