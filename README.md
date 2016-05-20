@@ -5,8 +5,6 @@ This boilerplate leverages webpack to provide a powerful build system, provides
 hot reloading, routing, Sass support, unit testing, linting, and more. The goal
 of this project is provide a robust project structure that is easy to expand on.
 
-The goal of this project is to provide structure and to demonstrate a very simple application that is easy to expand on.
-
 ## Table of Contents
 1. [Features](#features)
 1. [Requirements](#requirements)
