@@ -1,13 +1,28 @@
 const chalk = require('chalk');
-const server = require('../server');
 const config = require('../config');
 
-server.listen(config.server.port, (err) => {
-  if (err) {
-    console.log(chalk.red(err));
-    return;
-  }
+if (process.env.NODE_ENV === 'production') {
+  const prodServer = require('../server/prodServer');
+  prodServer.listen(config.server.port, err => {
+    if (err) {
+      console.log(chalk.red(err));
+      return;
+    }
+  });
+
   console.log(chalk.green(
-    `Server is now running at http://127.0.0.1:${config.server.port}.`
+    `Production server is now running at localhost:${config.server.port}.`
   ));
-});
+
+} else {
+  const devServer = require('../server/devServer');
+  devServer.listen(config.server.port, err => {
+    if (err) {
+      console.log(chalk.red(err));
+      return;
+    }
+    console.log(chalk.green(
+      `Development server is now running at localhost:${config.server.port}.`
+    ));
+  });
+}

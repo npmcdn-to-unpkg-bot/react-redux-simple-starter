@@ -107,7 +107,7 @@ specify a port with `PORT=<PORT_NUMBER> npm run prod`.
 
 Yet another option, if you don't want to manage your own virtual server but would
 instead like for someone to do it for you, is to look into managed hosting.
-[Heroku](https://heroku.com) is one popular option for this.
+[Heroku](https://heroku.com) is a popular option for this.
 
 ## Contributing
 I am more than happy to accept any external contributions to the project in the
