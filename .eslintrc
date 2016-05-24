@@ -1,5 +1,4 @@
 {
-
   "parserOptions": {,
     "sourceType": "module",
     "ecmaFeatures": {
@@ -14,6 +13,10 @@
     "jquery": true,
     "node": true
   },
+
+  "plugins": [
+    "react"
+  ],
 
   "rules": {
     "arrow-spacing": 2,
@@ -45,6 +48,17 @@
     "keyword-spacing": 2,
     "space-before-function-paren": [2, { "anonymous": "always", "named": "never" }],
     "space-in-parens": [2, "never"],
-    "quotes": [2, "single"]
+    "quotes": [2, "single"],
+    jsx-quotes: [2, "prefer-double"],
+
+    "react/prefer-es6-class": [1, "always"],
+    "react/wrap-multilines": [1],
+    "react/self-closing-comp": [1],
+    "react/jsx-pascal-case": [1],
+    "react/jsx-space-before-closing": [1, "always"],
+    "react/jsx-closing-bracket-location": [1, 'tag-aligned'],
+    "react/jsx-equals-spacing": [1, "never"],
+    "react/jsx-curly-spacing": [1, "never"],
+    "react/jsx-boolean-value": [1, "never"]
   }
 }

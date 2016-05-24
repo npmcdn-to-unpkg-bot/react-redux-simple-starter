@@ -9,7 +9,7 @@ class NotFoundView extends Component {
         <Helmet title="Not Found" />
         <h3 style={{ textAlign: 'center' }}>Page Not Found</h3>
         <p style={{ textAlign: 'center' }}>Whoops! Sorry, there is nothing to see here.</p>
-        <Link to="/" className="btn btn-primary" style={{ margin: 'auto', display: 'block', width: '150px' }}>Go back home</Link>
+        <p style={{ textAlign: 'center' }}><Link to="/">Go back home</Link></p>
       </div>
     );
   }
