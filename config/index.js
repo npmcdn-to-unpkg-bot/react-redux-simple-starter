@@ -1,9 +1,9 @@
 const path = require('path');
 const merge = require('lodash/merge');
+const debug = require('debug')('app:config');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const PORT = process.env.PORT || 3000;
-const API_URL = process.env.API_URL || 'http://localhost:3090';
 
 const PROJECT_ROOT = path.resolve(__dirname, '..');
 const SRC_DIR = 'src';
@@ -11,10 +11,9 @@ const DIST_DIR = 'dist';
 const SERVER_DIR = 'server';
 const STATIC_DIR = 'src/static';
 
-
+debug('Creating default configuration.');
 const config = {
   env: NODE_ENV,
-  apiUrl: API_URL,
 
   paths: {
     root: PROJECT_ROOT,

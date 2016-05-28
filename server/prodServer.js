@@ -1,10 +1,11 @@
 const path = require('path');
 const express = require('express');
-const chalk = require('chalk');
 const serveStatic = require('serve-static');
 const serveFavicon = require('serve-favicon');
 const config = require('../config');
+const debug = require('debug')('app:server:prodServer');
 
+debug('Creating production server.');
 const app = express();
 
 app.use(serveStatic(config.paths.dist));

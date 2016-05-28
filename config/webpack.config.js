@@ -2,11 +2,13 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const config = require('./index.js');
+const debug = require('debug')('app:config:webpack');
 
 const NODE_ENV = config.env;
 const DEVELOPMENT = NODE_ENV === 'development';
 const PRODUCTION = NODE_ENV === 'production';
 
+debug('Creating webpack configuration.');
 const webpackConfig = {
   devtool: config.webpack.devtool,
   module: {},
@@ -18,6 +20,10 @@ const webpackConfig = {
 webpackConfig.entry = [
   config.paths.entryFile,
 ];
+
+if (DEVELOPMENT) {
+  webpackConfig.entry.push('webpack-hot-middleware/client');
+}
 
 // --------------------------------------
 // Bundle output
@@ -38,7 +44,6 @@ webpackConfig.plugins = [
   new webpack.DefinePlugin({
     'process.env': {
       NODE_ENV: JSON.stringify(config.env),
-      API_URL: JSON.stringify(config.apiUrl),
     },
   }),
   // Generate index.html with the correct hashed filenames
@@ -54,8 +59,6 @@ webpackConfig.plugins = [
 ];
 
 if (DEVELOPMENT) {
-  webpackConfig.entry.push('webpack-hot-middleware/client');
-
   webpackConfig.plugins.push(
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
