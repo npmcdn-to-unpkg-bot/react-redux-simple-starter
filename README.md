@@ -77,12 +77,10 @@ together in the modules folder.
 │   │   ├── configureStore    # Create a redux store
 │   │   └── rootReducer       # Combine all reducers
 │   ├── routes                # Route definitions for react-router
+│   ├── static                # Static assets
 │   ├── styles                # Sass styling for project
 │   ├── views                 # Views that aren't part of any module
 │   └── index.js              # Entry point for the application
-├── static                    # All files that are used in production
-│   ├── assets                # Project assets
-│   ├── (dist)                # Source code will be bundled and output here by webpack
 │   └── index.html            # Entry point for the browser
 └── test                      # Unit tests
 ```

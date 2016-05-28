@@ -1,14 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Navigation from './Navigation';
 
-export default class App extends Component {
-
-  render() {
-    return (
-      <div>
-        <Navigation />
-        {this.props.children}
-      </div>
-    );
-  }
+export default function App({ children }) {
+  return (
+    <div>
+      <Navigation />
+      {children}
+    </div>
+  );
 }

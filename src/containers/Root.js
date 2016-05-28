@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 
@@ -6,16 +6,13 @@ import { Router } from 'react-router';
 require('../styles/core.scss');
 // }
 
-export default class Root extends Component {
-  render() {
-    const { store, routes, history } = this.props;
-    return (
-      <Provider store={store}>
-        <div>
-          <Router history={history}>{routes}</Router>
-        </div>
-      </Provider>
-    );
+export default function Root({ store, routes, history }){
+  return (
+    <Provider store={store}>
+      <div>
+        <Router history={history}>{routes}</Router>
+      </div>
+    </Provider>
+  );
 
-  }
 }
