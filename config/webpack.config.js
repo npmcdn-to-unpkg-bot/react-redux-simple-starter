@@ -44,6 +44,7 @@ webpackConfig.plugins = [
   new webpack.DefinePlugin({
     'process.env': {
       NODE_ENV: JSON.stringify(config.env),
+      API_URL: JSON.stringify(config.apiUrl),
     },
   }),
   // Generate index.html with the correct hashed filenames
@@ -59,6 +60,7 @@ webpackConfig.plugins = [
 ];
 
 if (DEVELOPMENT) {
+  debug('Enabling webpack plugins for development.');
   webpackConfig.plugins.push(
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
@@ -66,13 +68,14 @@ if (DEVELOPMENT) {
 }
 
 if (PRODUCTION) {
+  debug('Enabling webpack plugins for production.');
   webpackConfig.plugins.push(
     // OccurrenceOrderPlugin is needed for long-term caching to work properly.
     // See http://mxs.is/googmv
     new webpack.optimize.OccurenceOrderPlugin(),
     // Minify and optimize the JavaScript.
     new webpack.optimize.UglifyJsPlugin({
-      compressor: {
+      compress: {
         unused: true,
         /* eslint-disable */
         dead_code: true,
@@ -86,7 +89,7 @@ if (PRODUCTION) {
 }
 
 // --------------------------------------
-// Loaders
+// JavaScript loaders
 // --------------------------------------
 webpackConfig.module.loaders = [
   {
@@ -106,21 +109,30 @@ webpackConfig.module.loaders = [
       },
     },
   },
-  {
-    test: /\.(css)(\?.+)$/,
-    loader: ExtractTextPlugin.extract('style', 'css'),
-    exclude: /node_modules/,
-  },
-  {
-    test: /\.scss$/,
-    loader: ExtractTextPlugin.extract('style', 'css!sass'),
-    exclude: /node_modules/,
-  },
-  {
-    test: /\.(jpg|png|mp3)$/,
-    loader: 'url?limit=25000',
-    include: config.paths.static,
-  },
 ];
+
+// --------------------------------------
+// Style loaders
+// --------------------------------------
+webpackConfig.module.loaders.push({
+  test: /\.(css)(\?.+)$/,
+  loader: ExtractTextPlugin.extract('style', 'css'),
+  exclude: /node_modules/,
+});
+
+webpackConfig.module.loaders.push({
+  test: /\.scss$/,
+  loader: ExtractTextPlugin.extract('style', 'css!sass'),
+  exclude: /node_modules/,
+});
+
+// --------------------------------------
+// File loaders
+// --------------------------------------
+webpackConfig.module.loaders.push({
+  test: /\.(jpg|png|mp3)$/,
+  loader: 'url?limit=25000',
+  include: config.paths.static,
+});
 
 module.exports = webpackConfig;
