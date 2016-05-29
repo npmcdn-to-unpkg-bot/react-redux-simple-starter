@@ -16,6 +16,15 @@ debug('Creating default configuration.');
 const config = {
   env: NODE_ENV,
 
+  globals: {
+    'process.env': {
+      'NODE_ENV': JSON.stringify(NODE_ENV),
+    },
+    '__DEV__': NODE_ENV === 'development',
+    '__PROD__': NODE_ENV === 'production',
+    '__API_URL__': JSON.stringify(API_URL),
+  },
+
   paths: {
     root: PROJECT_ROOT,
     src: path.resolve(PROJECT_ROOT, SRC_DIR),
@@ -29,15 +38,6 @@ const config = {
       html: path.resolve(PROJECT_ROOT, DIST_DIR, 'index.html'),
       favicon: path.resolve(PROJECT_ROOT, DIST_DIR, 'favicon.ico'),
     },
-  },
-
-  globals: {
-    'process.env': {
-      'NODE_ENV': JSON.stringify(NODE_ENV),
-    },
-    '__DEV__': NODE_ENV === 'development',
-    '__PROD__': NODE_ENV === 'production',
-    '__API_URL__': JSON.stringify(API_URL),
   },
 
   server: {

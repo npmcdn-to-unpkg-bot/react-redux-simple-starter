@@ -6,7 +6,7 @@ import Counter from '../components/Counter';
 
 function CounterView({ counter, increment, decrement }) {
   return (
-    <div>
+    <div className="pa3 pa4-ns">
       <Helmet title="Counter" />
       <Counter counter={counter} increment={increment} decrement={decrement} />
     </div>

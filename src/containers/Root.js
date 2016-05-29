@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 
 // if (process.env.BROWSER) {
-require('../styles/core.scss');
+// require('../styles/core.scss');
 // }
 
 export default function Root({ store, routes, history }){

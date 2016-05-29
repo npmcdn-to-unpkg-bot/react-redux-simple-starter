@@ -1,7 +1,7 @@
-@import 'variables';
 @import 'vendor/normalize';
+@import 'base';
 
-// Best-practice CSS
+/* Some best-practice CSS that's useful for most apps */
 
 html {
   box-sizing: border-box;

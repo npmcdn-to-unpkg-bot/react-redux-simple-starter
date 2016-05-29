@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 const config = require('./index.js');
 const debug = require('debug')('app:config:webpack');
 
@@ -108,17 +109,21 @@ webpackConfig.module.loaders = [
 // --------------------------------------
 // Style loaders
 // --------------------------------------
+// css, css-modules, postcss
 webpackConfig.module.loaders.push({
-  test: /\.(css)(\?.+)$/,
-  loader: ExtractTextPlugin.extract('style', 'css'),
+  test: /\.css$/,
+  loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'),
   exclude: /node_modules/,
 });
 
+// sass, css-modules, postcss
 webpackConfig.module.loaders.push({
   test: /\.scss$/,
-  loader: ExtractTextPlugin.extract('style', 'css!sass'),
+  loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass?outputStyle=expanded&sourceMap!postcss-loader'),
   exclude: /node_modules/,
 });
+
+webpackConfig.postcss = [ autoprefixer({ browsers: ['last 2 versions'] }) ];
 
 // --------------------------------------
 // File loaders
