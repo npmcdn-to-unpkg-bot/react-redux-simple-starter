@@ -4,9 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const config = require('./index.js');
 const debug = require('debug')('app:config:webpack');
 
-const NODE_ENV = config.env;
-const DEVELOPMENT = NODE_ENV === 'development';
-const PRODUCTION = NODE_ENV === 'production';
+const DEVELOPMENT = config.globals.__DEV__;
+const PRODUCTION = config.globals.__PROD__;
 
 debug('Creating webpack configuration.');
 const webpackConfig = {
@@ -40,13 +39,8 @@ webpackConfig.output = {
 webpackConfig.plugins = [
   new ExtractTextPlugin('styles.css'),
   // DefinePlugin is needed to expose any variables to webpack, and thus to be
-  // able to access them in your application.
-  new webpack.DefinePlugin({
-    'process.env': {
-      NODE_ENV: JSON.stringify(config.env),
-      API_URL: JSON.stringify(config.apiUrl),
-    },
-  }),
+  // able to access them in the application code.
+  new webpack.DefinePlugin(config.globals),
   // Generate index.html with the correct hashed filenames
   new HtmlWebpackPlugin({
     template: config.paths.htmlTemplate,
